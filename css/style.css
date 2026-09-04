@@ -1,0 +1,827 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Handlee&family=Patrick+Hand&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --cream: #f8efd9;
+    --paper: #fffaf0;
+    --pink: #e9a6b4;
+    --dark-pink: #c86b82;
+    --red: #b94444;
+    --brown: #6d4c41;
+    --dark: #3d2b2b;
+    --yellow: #f6cf4d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.35),
+            rgba(255, 255, 255, 0.35)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 28px,
+            rgba(0,0,0,0.03) 29px
+        ),
+        #d8b9b9;
+
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 7%;
+
+    background: rgba(255, 250, 240, 0.92);
+
+    backdrop-filter: blur(10px);
+
+    border-bottom: 3px dashed var(--brown);
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-family: 'Chewy', cursive;
+    font-size: 24px;
+    color: var(--red);
+
+    transform: rotate(-2deg);
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-family: 'Patrick Hand', cursive;
+    font-size: 19px;
+
+    padding: 6px 10px;
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: var(--pink);
+    color: white;
+
+    transform: rotate(-3deg) scale(1.1);
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    padding: 40px;
+
+    background: var(--paper);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,0.2),
+        inset 0 0 50px rgba(120,80,50,0.08);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   BOOK EFFECT
+========================= */
+
+.book-page {
+    position: relative;
+}
+
+.book-page::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 5px;
+    height: 100%;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #444 0px,
+            #444 8px,
+            transparent 8px,
+            transparent 15px
+        );
+
+    opacity: 0.25;
+}
+
+
+/* =========================
+   PAPER TAPE
+========================= */
+
+.tape {
+    position: absolute;
+
+    width: 120px;
+    height: 30px;
+
+    background: rgba(239, 211, 137, 0.75);
+
+    transform: rotate(-5deg);
+
+    top: 20px;
+    left: 30px;
+
+    z-index: 5;
+}
+
+.tape.right {
+    left: auto;
+    right: 30px;
+
+    transform: rotate(5deg);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 50px 20px;
+}
+
+.hero-content {
+    max-width: 750px;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: 'Chewy', cursive;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    color: var(--red);
+
+    text-shadow:
+        3px 3px 0 #fff,
+        6px 6px 0 rgba(0,0,0,0.1);
+
+    transform: rotate(-2deg);
+
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-family: 'Handlee', cursive;
+
+    font-size: 35px;
+
+    color: var(--brown);
+
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 24px;
+
+    color: var(--dark);
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   POLAROID
+========================= */
+
+.polaroid {
+    background: white;
+
+    padding: 12px 12px 35px;
+
+    box-shadow: 5px 8px 18px rgba(0,0,0,0.25);
+
+    transition: 0.4s;
+
+    position: relative;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05) !important;
+    z-index: 10;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+}
+
+.polaroid p {
+    text-align: center;
+
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 22px;
+
+    margin-top: 8px;
+
+    color: var(--dark);
+}
+
+
+/* =========================
+   PHOTO GRID
+========================= */
+
+.photo-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 35px;
+
+    padding: 30px 0;
+}
+
+.rotate-left {
+    transform: rotate(-6deg);
+}
+
+.rotate-right {
+    transform: rotate(5deg);
+}
+
+.rotate-small-left {
+    transform: rotate(-3deg);
+}
+
+.rotate-small-right {
+    transform: rotate(3deg);
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    text-align: center;
+
+    font-family: 'Chewy', cursive;
+
+    font-size: 55px;
+
+    color: var(--red);
+
+    margin-bottom: 20px;
+
+    transform: rotate(-1deg);
+}
+
+.section-subtitle {
+    text-align: center;
+
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 23px;
+
+    color: var(--brown);
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   STORY CARD
+========================= */
+
+.story-card {
+    max-width: 850px;
+
+    margin: 30px auto;
+
+    background: #fffdf7;
+
+    padding: 35px;
+
+    border: 2px dashed var(--brown);
+
+    border-radius: 10px;
+
+    box-shadow: 7px 7px 0 rgba(120,80,50,0.12);
+
+    position: relative;
+}
+
+.story-card p {
+    font-family: 'Handlee', cursive;
+
+    font-size: 25px;
+
+    line-height: 1.8;
+
+    color: var(--dark);
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    max-width: 800px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    width: 5px;
+
+    height: 100%;
+
+    background: var(--pink);
+
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    width: 50%;
+
+    padding: 20px 40px;
+
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    border: 2px dashed var(--brown);
+
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.08);
+}
+
+.timeline-content h3 {
+    font-family: 'Chewy', cursive;
+
+    color: var(--red);
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 20px;
+}
+
+.timeline-dot {
+    position: absolute;
+
+    width: 22px;
+    height: 22px;
+
+    background: var(--yellow);
+
+    border: 4px solid white;
+
+    border-radius: 50%;
+
+    top: 30px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -11px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -11px;
+}
+
+
+/* =========================
+   PLACE CARD
+========================= */
+
+.place-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+}
+
+.place-card {
+    background: #fff;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+
+    transition: 0.3s;
+
+    position: relative;
+}
+
+.place-card:hover {
+    transform: translateY(-10px) rotate(-2deg);
+}
+
+.place-card img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+.place-card h3 {
+    font-family: 'Chewy', cursive;
+
+    color: var(--red);
+
+    font-size: 27px;
+
+    margin-top: 15px;
+}
+
+.place-card p {
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 19px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   MEMORY CARD
+========================= */
+
+.memory-card {
+    background: #f7e8bf;
+
+    padding: 35px;
+
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    border-radius: 5px;
+
+    box-shadow: 8px 8px 0 rgba(100,70,40,0.15);
+
+    transform: rotate(-1deg);
+}
+
+.memory-card h2 {
+    font-family: 'Chewy', cursive;
+
+    color: var(--red);
+
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.memory-card p {
+    font-family: 'Handlee', cursive;
+
+    font-size: 26px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   LOVE NOTES
+========================= */
+
+.love-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 25px;
+}
+
+.love-note {
+    min-height: 200px;
+
+    padding: 25px;
+
+    background: #ffd9e2;
+
+    box-shadow: 7px 7px 0 rgba(0,0,0,0.1);
+
+    transform: rotate(-3deg);
+
+    transition: 0.3s;
+}
+
+.love-note:nth-child(even) {
+    background: #fff0a8;
+
+    transform: rotate(3deg);
+}
+
+.love-note:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.love-note h3 {
+    font-family: 'Chewy', cursive;
+
+    color: var(--red);
+
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.love-note p {
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 21px;
+}
+
+
+/* =========================
+   BUCKET LIST
+========================= */
+
+.bucket-list {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.bucket-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: white;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    border: 2px dashed var(--brown);
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.bucket-item:hover {
+    transform: translateX(10px);
+    background: #fff4d6;
+}
+
+.bucket-item input {
+    width: 25px;
+    height: 25px;
+
+    cursor: pointer;
+}
+
+.bucket-item span {
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 24px;
+}
+
+
+/* =========================
+   DECORATIONS
+========================= */
+
+.sticker {
+    position: absolute;
+
+    font-size: 50px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+.star1 {
+    top: 80px;
+    left: 5%;
+}
+
+.star2 {
+    bottom: 50px;
+    right: 5%;
+
+    animation-delay: 1s;
+}
+
+.heart1 {
+    top: 120px;
+    right: 8%;
+
+    animation-delay: 2s;
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 15px 30px;
+
+    text-decoration: none;
+
+    background: var(--red);
+
+    color: white;
+
+    font-family: 'Chewy', cursive;
+
+    font-size: 22px;
+
+    border-radius: 30px;
+
+    box-shadow: 5px 5px 0 var(--brown);
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translate(3px, 3px);
+
+    box-shadow: 2px 2px 0 var(--brown);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+
+    padding: 30px;
+
+    font-family: 'Patrick Hand', cursive;
+
+    font-size: 22px;
+
+    color: var(--brown);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .container {
+        width: 95%;
+        padding: 25px 15px;
+    }
+
+    .book-page::before {
+        display: none;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+
+        padding-left: 55px;
+
+        padding-right: 10px;
+
+        text-align: left !important;
+    }
+
+    .timeline-item .timeline-dot {
+        left: 9px !important;
+        right: auto !important;
+    }
+
+}
